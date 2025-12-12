@@ -17,16 +17,23 @@ public class ReservationService {
         }
 
         switch (paymentType){
-            case CARD:
-                paymentProcessor.payByCard(res.totalPrice());
-                break;
-            case PAYPAL:
-                paymentProcessor.payByPayPal(res.totalPrice());
-                break;
-            case CASH:
-                paymentProcessor.payByCash(res.totalPrice());
-                break;
-        }
+    case CARD:
+        paymentProcessor.payByCard(res.totalPrice());
+        break;
+
+    case PAYPAL:
+        paymentProcessor.payByPayPal(res.totalPrice());
+        break;
+
+    case CASH:
+        paymentProcessor.payByCash(res.totalPrice());
+        break;
+
+    case ONSITE:
+        paymentProcessor.payOnSite(res.totalPrice());
+        break;
+}
+
 
         System.out.println("----- INVOICE -----");
         System.out.println("hotel.Customer: " + res.customer.name);
