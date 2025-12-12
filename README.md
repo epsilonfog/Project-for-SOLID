@@ -43,3 +43,51 @@ This is the frist homwork for Object oriented design
     </tr>
   </tbody>
 </table>
+
+
+<table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+        <tr>
+            <th>اصل</th>
+            <th>رعایت</th>
+            <th>نقض</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>SRP</td>
+            <td>Class Room</td>
+            <td>ReservationService</td>
+        </tr>
+        <tr>
+            <td>OCP</td>
+            <td>افزودن LuxuryRoom بدون تغییر Room</td>
+            <td>switch در ReservationService</td>
+        </tr>
+        <tr>
+            <td>LSP</td>
+            <td>استفاده از LuxuryRoom</td>
+            <td>نامناسب بودن MessageSender برای کلاس‌های جدید</td>
+        </tr>
+        <tr>
+            <td>ISP</td>
+            <td>توابع جدا در PaymentProcessor</td>
+            <td>وجود فقط sendEmail در MessageSender</td>
+        </tr>
+        <tr>
+            <td>DIP</td>
+            <td>وجود Interface برای MessageSender</td>
+            <td>وابستگی ReservationService به EmailSender</td>
+        </tr>
+        <tr>
+            <td>PLK</td>
+            <td>ساده بودن PaymentProcessor</td>
+            <td>دسترسی عمیق به فیلدهای Customer و Room</td>
+        </tr>
+        <tr>
+            <td>CRP</td>
+            <td>قابلیت استفاده مشترک Room و Customer</td>
+            <td>عدم قابلیت استفاده مجدد MessageSender</td>
+        </tr>
+    </tbody>
+</table>
