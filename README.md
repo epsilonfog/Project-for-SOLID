@@ -246,3 +246,69 @@ MessageSender قابل استفاده مجدد نبود چون فقط ایمیل
 یک Interface عمومی ایجاد شد.
 هر پیام‌رسان (Email، SMS، شبکه اجتماعی، واتساپ، …) می‌تواند بدون تغییر در کدهای قبلی اضافه شود.
 
+<div style="border: 2px solid #555; padding: 16px; border-radius: 10px; font-family: sans-serif; line-height: 1.8;">
+
+    <h3 style="margin-top: 0; color:#2c3e50;">➤ افزودن قابلیت ارسال SMS</h3>
+
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width:100%; text-align:right;">
+        <tr style="background:#f8d7da;">
+            <th style="width:40%;">❌ در کد اولیه مجبور شدیم:</th>
+            <td>
+                تغییر در <b>ReservationService</b><br>
+                تغییر در <b>Notifier enum</b><br>
+                تغییر در <b>MessageSender interface</b>
+            </td>
+        </tr>
+
+        <tr style="background:#d4edda;">
+            <th>✔ اگر اصول شی‌گرایی (OCP + DIP) رعایت شده بود:</th>
+            <td>
+                فقط باید یک کلاس جدید اضافه می‌شد:
+                <pre style="background:#f4f4f4; padding:10px; border-radius:6px; direction:ltr;">
+public class SmsService implements MessageService {
+    @Override
+    public void send(String to, String message){
+        System.out.println("SMS sent to " + to + ": " + message);
+    }
+}
+                </pre>
+                بدون هیچ تغییری در:
+                <br>• ReservationService  
+                <br>• MessageService  
+                <br>• سایر کلاس‌ها  
+            </td>
+        </tr>
+    </table>
+
+    <hr style="margin:25px 0;">
+
+    <h3 style="margin-top: 0; color:#2c3e50;">➤ افزودن قابلیت پرداخت حضوری (OnSitePayment)</h3>
+
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width:100%; text-align:right;">
+        <tr style="background:#fff3cd;">
+            <th style="width:40%;">❌ در کد اولیه مجبور شدیم:</th>
+            <td>
+                تغییر در <b>PaymentProcessor</b><br>
+                تغییر در <b>ReservationService</b><br>
+                گسترش <b>Enum</b>  
+            </td>
+        </tr>
+
+        <tr style="background:#d4edda;">
+            <th>✔ اگر OCP + DIP رعایت شده بود:</th>
+            <td>
+                فقط این کلاس را اضافه می‌کردیم:
+                <pre style="background:#f4f4f4; padding:10px; border-radius:6px; direction:ltr;">
+public class OnSitePayment implements PaymentMethod {
+    @Override
+    public void pay(double amount){
+        System.out.println("Will be paid onsite: " + amount);
+    }
+}
+                </pre>
+                و هیچ تغییری در کدهای موجود لازم نبود.
+            </td>
+        </tr>
+    </table>
+
+</div>
