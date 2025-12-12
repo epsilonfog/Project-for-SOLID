@@ -2,89 +2,44 @@
 
 This is the frist homwork for Object oriented design
 
-
-
-<table border="1" cellpadding="6" cellspacing="0">
-
-<thead>
-
-<tr>
-
-&nbsp;   <th>ردیف</th>
-
-&nbsp;   <th>کلاس تغییر یافته (ارسال پیام)</th>
-
-&nbsp;   <th>توضیح کوتاه درباره تغییر (افزودن روش ارسال پیام)</th>
-
-&nbsp;   <th>کلاس تغییر یافته (پرداخت)</th>
-
-&nbsp;   <th>توضیح کوتاه درباره تغییر (افزودن روش پرداخت)</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-&nbsp;   <td>1</td>
-
-&nbsp;   <td>MessageSender</td>
-
-&nbsp;   <td>افزودن قابلیت جدید برای ارسال پیامک از طریق ایجاد کلاس SmsSender که از اینترفیس MessageSender پیروی می‌کند</td>
-
-&nbsp;   <td>PaymentProcessor</td>
-
-&nbsp;   <td>افزودن تابع جدید به نام payOnSite برای پشتیبانی از پرداخت حضوری</td>
-
-</tr>
-
-<tr>
-
-&nbsp;   <td>2</td>
-
-&nbsp;   <td>EmailSender</td>
-
-&nbsp;   <td>بدون تغییر — الگوی قبلی برقرار ماند و صرفاً کلاس جدید برای SMS اضافه شد</td>
-
-&nbsp;   <td>ReservationService</td>
-
-&nbsp;   <td>اضافه کردن case جدید برای PaymentMethods.ONSITE در ساختار switch مربوط به پرداخت</td>
-
-</tr>
-
-<tr>
-
-&nbsp;   <td>3</td>
-
-&nbsp;   <td>SmsSender (کلاس جدید)</td>
-
-&nbsp;   <td>ایجاد یک کلاس جدید برای ارسال پیامک مطابق ساختار EmailSender</td>
-
-&nbsp;   <td>PaymentMethods</td>
-
-&nbsp;   <td>افزودن مقدار جدید enum به نام ONSITE جهت معرفی روش پرداخت حضوری</td>
-
-</tr>
-
-<tr>
-
-&nbsp;   <td>4</td>
-
-&nbsp;   <td>ReservationService</td>
-
-&nbsp;   <td>افزودن case جدید برای ارسال پیامک (Notifier.SMS) و استفاده از SmsSender</td>
-
-&nbsp;   <td>—</td>
-
-&nbsp;   <td>—</td>
-
-</tr>
-
-</tbody>
-
+<table dir="rtl">
+  <thead>
+    <tr>
+      <th>ردیف</th>
+      <th>کلاس تغییر یافته (ارسال پیام)</th>
+      <th>توضیح کوتاه درباره تغییر</th>
+      <th>کلاس تغییر یافته (پرداخت)</th>
+      <th>توضیح کوتاه درباره تغییر</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>MessageSender</td>
+      <td>افزودن قابلیت ارسال پیامک با ایجاد SmsSender</td>
+      <td>PaymentProcessor</td>
+      <td>افزودن payOnSite جهت پرداخت حضوری</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>EmailSender</td>
+      <td>بدون تغییر، فقط کلاس SMS اضافه شد</td>
+      <td>ReservationService</td>
+      <td>افزودن case جدید برای ONSITE</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>SmsSender</td>
+      <td>ایجاد کلاس جدید مشابه EmailSender</td>
+      <td>PaymentMethods</td>
+      <td>افزودن مقدار جدید ONSITE</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>ReservationService</td>
+      <td>افزودن case برای Notifier.SMS</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+  </tbody>
 </table>
-
-
-
